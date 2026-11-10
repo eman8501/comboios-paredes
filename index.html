@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#12271f">
+  <meta name="description" content="Painel de chegadas e partidas da estação de Paredes.">
+  <title>Comboios de Paredes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="Comboios de Paredes">
+        <span class="brand-mark">CP</span>
+        <span><strong>comboios</strong><small>DE PAREDES</small></span>
+      </a>
+      <div class="connection"><i id="connection-dot"></i><span id="connection-label">A iniciar painel</span></div>
+    </header>
+
+    <section class="hero">
+      <div class="eyebrow">INFORMAÇÃO FERROVIÁRIA <b>•</b> PORTUGAL</div>
+      <h1>Estação de <em>Paredes.</em></h1>
+      <p>Todos os comboios. Num só painel.</p>
+      <div class="hero-meta">
+        <div><span id="today" class="date-label">HOJE</span><strong id="clock">--:--:--</strong></div>
+        <span class="refresh">↻ Atualização automática a cada 30 segundos</span>
+      </div>
+    </section>
+
+    <section class="board">
+      <div class="board-heading">
+        <div><span class="kicker">PAINEL DA ESTAÇÃO</span><h2>Movimento de comboios</h2></div>
+        <div class="switch" role="group" aria-label="Tipo de movimento">
+          <button class="switch-btn active" data-direction="arrivals">Chegadas</button>
+          <button class="switch-btn" data-direction="departures">Partidas</button>
+        </div>
+      </div>
+      <div class="filters">
+        <span class="filter-caption">TIPO DE SERVIÇO</span>
+        <div class="chips">
+          <button class="chip active" data-filter="all">Todos</button>
+          <button class="chip" data-filter="Urbano">Urbano</button>
+          <button class="chip" data-filter="Regional">Regional</button>
+          <button class="chip" data-filter="InterRegional">InterRegional</button>
+          <button class="chip" data-filter="Intercidades">Intercidades</button>
+          <button class="chip" data-filter="Alfa Pendular">Alfa Pendular</button>
+        </div>
+      </div>
+      <div class="table-scroll">
+        <div class="table-head"><span>HORA</span><span>COMBOIO</span><span>ORIGEM</span><span>DESTINO</span><span>LINHA</span><span>ESTADO</span></div>
+        <div id="train-list" aria-live="polite">
+          <div class="empty"><span class="spinner"></span><p>A preparar informação da estação…</p></div>
+        </div>
+      </div>
+      <div class="board-footer"><span id="updated">À espera de dados oficiais</span><span id="count">0 serviços</span></div>
+    </section>
+
+    <footer><strong>COMBOIOS DE PAREDES</strong><span>Confirme sempre a informação nos ecrãs da estação.</span></footer>
+  </main>
+</body>
+</html>
