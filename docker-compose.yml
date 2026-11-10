@@ -1,0 +1,20 @@
+services:
+  server:
+    image: ghcr.io/caiocdcs/comboios-server:latest
+    container_name: comboios-paredes-api
+    restart: unless-stopped
+    environment:
+      HOST: 0.0.0.0
+      PORT: 3000
+      RUST_LOG: comboios_server=info,tower_http=info
+      REQUEST_TIMEOUT_SECS: 30
+      CREDENTIAL_REFRESH_SECS: 3300
+
+  dashboard:
+    build: .
+    container_name: comboios-paredes-web
+    restart: unless-stopped
+    ports:
+      - "${WEB_PORT:-8080}:80"
+    depends_on:
+      - server
