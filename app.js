@@ -1,4 +1,3 @@
-const REFRESH_INTERVAL = 30000;
 let services = [];
 let direction = "arrivals";
 let filter = "all";
@@ -116,5 +115,5 @@ document.querySelectorAll("[data-filter]").forEach(button=>button.addEventListen
   document.querySelectorAll("[data-filter]").forEach(item=>item.classList.toggle("active",item===button));
   render();
 }));
+// Consulta os dados apenas ao abrir/recarregar a página.
 loadBoard();
-setInterval(loadBoard,REFRESH_INTERVAL);
